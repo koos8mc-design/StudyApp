@@ -37,3 +37,18 @@ TEKST_8B = [
 TEKST_8C = [
     ("ὁ βωμός", "altaar"),
     ("οὐδέν", "niets"),
+    ("οὐδαμῶς", "helemaal niet"),
+    ("ἤδη", "al, reeds"),
+    ("δυστυχής", "ongelukkig"),
+    ("οὐκέτι", "niet meer"),
+    ("ἀντί (+ gen.)", "in plaats van"),
+    ("ἀρέσκω (+ dat.)", "bevallen aan, in de smaak vallen bij"),
+    ("εὔνους (+ dat.)", "goedgezind (aan)"),
+    ("τὸ Ἴλιον", "Troje"),
+]
+
+ALL_LESSONS = {
+    "Tekst 8A - Het vertrek": TEKST_8A,
+    "Tekst 8B - Ifigeneia naar Aulis": TEKST_8B,
+    "Tekst 8C - Het offer": TEKST_8C,
+}
