@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Grieks Woordjes Oefenen
-Een klein oefenprogramma voor Grieks-Nederlandse woordenschat.
+Een klein oefenprogramma voor Grieks-Nederlands woordenschat.
 """
 import random
 import tkinter as tk
@@ -190,4 +190,60 @@ class VocabApp(tk.Tk):
             next_btn.pack(pady=10)
             show_btn.pack_forget()
 
-        show_btn =
+        show_btn = tk.Button(self.container, text="Toon antwoord", font=self.normal_font,
+                              bg="#2c3e50", fg="white", command=reveal)
+        show_btn.pack(pady=15)
+
+        next_btn = tk.Button(self.container, text="Volgende woord", font=self.normal_font,
+                              bg="#27ae60", fg="white", command=self.advance)
+
+    def check_answer(self, given, correct, is_typing=False):
+        self.total += 1
+        correct_norm = correct.split("/")[0].split(",")[0].strip().lower()
+        given_norm = given.strip().lower()
+
+        is_correct = (given == correct) if not is_typing else (
+            given_norm in correct.lower() or correct_norm in given_norm
+        )
+
+        if is_correct:
+            self.score += 1
+            self.feedback_label.config(text="Goed zo! ✓", fg="#27ae60")
+        else:
+            self.feedback_label.config(text=f"Helaas. Juiste antwoord: {correct}", fg="#c0392b")
+
+        # disable buttons after answering (multiple choice)
+        for widget in self.container.winfo_children():
+            if isinstance(widget, tk.Button) and widget.cget("text") != "Volgende woord":
+                widget.config(state="disabled")
+
+        next_btn = tk.Button(self.container, text="Volgende woord", font=self.normal_font,
+                              bg="#27ae60", fg="white", command=self.advance)
+        next_btn.pack(pady=15)
+
+    def advance(self):
+        self.current_index += 1
+        self.next_question()
+
+    # ---------- end screen ----------
+    def show_end_screen(self):
+        self.clear_container()
+        f = self.container
+
+        tk.Label(f, text="Klaar!", font=self.title_font, bg="#f4f1ea", fg="#2c3e50").pack(pady=(50, 10))
+
+        if self.total > 0:
+            pct = round(100 * self.score / self.total)
+            result_text = f"Je score: {self.score} / {self.total} ({pct}%)"
+        else:
+            result_text = "Flashcards doorgenomen!"
+
+        tk.Label(f, text=result_text, font=self.normal_font, bg="#f4f1ea").pack(pady=10)
+
+        tk.Button(f, text="Opnieuw oefenen", font=self.normal_font, bg="#2c3e50", fg="white",
+                  padx=15, pady=8, command=self.show_start_screen).pack(pady=25)
+
+
+if __name__ == "__main__":
+    app = VocabApp()
+    app.mainloop()
