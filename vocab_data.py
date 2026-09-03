@@ -52,3 +52,17 @@ ALL_LESSONS = {
     "Tekst 8B - Ifigeneia naar Aulis": TEKST_8B,
     "Tekst 8C - Het offer": TEKST_8C,
 }
+
+# Korte studietips, worden willekeurig getoond op het startscherm
+TIPS = [
+    "Het imperfectum krijgt een augment (ἐ-) vooraan als signaal voor verleden tijd.",
+    "Werkwoorden die met een klinker beginnen krijgen géén ἐ-, maar een lange klinker (ᾱ, η, ω, ι, υ).",
+    "Werkwoorden die met ρ beginnen verdubbelen die ρ na het augment: ἔρριψα.",
+    "τόδε / τάδε betekent 'dit' of 'het volgende' - let op de context.",
+    "Woorden met (+ dat.) hebben een meewerkend voorwerp nodig, geen lijdend voorwerp.",
+    "οὐδέ kan zowel 'en niet' als 'zelfs niet' betekenen, afhankelijk van de zin.",
+    "Herhaling is de sleutel: oefen kleine setjes vaker, in plaats van alles in één keer.",
+    "Lees hardop - de klank helpt vaak om een woord te onthouden.",
+    "Verzin een ezelsbruggetje: bijv. 'ἱκετεύω' klinkt als 'ik ga smeken'.",
+    "Woorden met een sterretje (afwijkende vormen) vaker herhalen dan de rest.",
+]
